@@ -1,0 +1,6 @@
+This will likely have the RPMs that need to be installed after a successful
+build. Still trying to decide if I want to do the build in this this role,
+and have it done on the ansible host, or create a pipeline to monitor the
+REPO and build it, then add it to this task.
+
+Either way is good, but annoying.

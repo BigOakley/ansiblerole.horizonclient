@@ -1,0 +1,13 @@
+---
+- name: Install vmware RPMS
+  dnf:
+    name: "{{ item }}"
+    state: present
+  become: yes
+  loop:
+    - vmware1
+    - vmware2
+    - vmware3
+    - vmware4
+    - etc
+...
