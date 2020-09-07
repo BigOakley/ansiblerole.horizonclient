@@ -1,0 +1,5 @@
+---
+- name: Install VMWare Horizon client
+  win_chocolatey:
+    name: vmware-horizon-client
+    state: present

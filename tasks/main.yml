@@ -1,13 +1,9 @@
 ---
-- name: Install vmware RPMS
-  dnf:
-    name: "{{ packages }}"
-    state: present
-  vars:
-    packages:
-    - vmware1
-    - vmware2
-    - vmware3
-    - vmware4
-    - etc
+- name: Install Horizon Client on RedHat Systems
+  include_tasks: redhat.yml
+  when: ansible_os_family == "RedHat"
+
+- name: Install Horizon Client on Windows Systems
+  include_tasks: windows.yml
+  when: ansible_os_family == "Windows"
 ...

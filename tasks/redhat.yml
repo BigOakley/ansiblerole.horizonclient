@@ -1,0 +1,13 @@
+---
+- name: Install vmware RPMS
+  dnf:
+    name: "{{ packages }}"
+    state: present
+  vars:
+    packages:
+    - vmware1
+    - vmware2
+    - vmware3
+    - vmware4
+    - etc
+...
