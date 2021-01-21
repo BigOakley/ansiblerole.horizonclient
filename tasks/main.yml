@@ -3,6 +3,10 @@
   include_tasks: redhat.yml
   when: ansible_os_family == "RedHat"
 
+- name: Install Horizon Client on Debian Systems
+  include_tasks: debian.yml
+  when: ansible_pkg_mgr == "apt"
+
 - name: Install Horizon Client on Windows Systems
   include_tasks: windows.yml
   when: ansible_os_family == "Windows"

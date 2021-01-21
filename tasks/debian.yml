@@ -1,0 +1,27 @@
+---
+# https://docs.vmware.com/en/VMware-Horizon-Client-for-Linux/2012/horizon-client-linux-installation/GUID-A5A6332F-1DEC-4D77-BD6E-1362596A2E76.html
+
+- name: Download Client
+  get_url:
+    url: https://download3.vmware.com/software/view/viewclients/CART21FQ4/VMware-Horizon-Client-2012-8.1.0-17349998.x64.bundle
+    dest: /tmp/VMware-Horizon-Client-2012-8.1.0-17349998.x64.bundle
+    mode: 0755
+
+- name: Install client
+  shell: >
+    env VMWARE_EULAS_AGREED=yes
+    ./VMware-Horizon-Client-2012-8.1.0-17349998.x64.bundle --console
+    --set-setting vmware-horizon-usb usbEnable yes
+    --set-setting vmware-horizon-smartcard smartcardEnable no
+    --set-setting vmware-horizon-rtav rtavEnable yes
+    --set-setting vmware-horizon-tsdr tsdrEnable yes
+    --set-setting vmware-horizon-scannerclient scannerEnable no
+    --set-setting vmware-horizon-serialportclient serialportEnable no
+    --set-setting vmware-horizon-mmr mmrEnable yes
+    --set-setting vmware-horizon-media-provider mediaproviderEnable yes
+    --set-setting vmware-horizon-html5mmr html5mmrEnable yes
+    --set-setting vmware-horizon-integrated-printing vmipEnable no
+  args:
+    chdir: /tmp/
+  become: yes
+...
